@@ -1,0 +1,193 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- deny
+- affirm
+- filename
+- greet
+- goodbye
+- identify
+- thank
+- nlu_fallback
+- ready
+
+entities:
+- filename
+
+slots:
+
+  file_uploaded:
+    type: bool
+    influence_conversation: true
+  
+  filename:
+    type: text
+    influence_conversation: true
+  
+  assignment_type:
+    type: text
+    influence_conversation: true
+  
+  topics:
+    type: any
+    influence_conversation: false
+
+  template_questions:
+    type: any
+    influence_conversation: false
+  
+  current_score:
+    type: float
+    influence_conversation: true
+    max_value: 1.0
+    min_value: 0.0
+
+  number_of_t5_questions_asked:
+    type: float
+    influence_conversation: false
+  
+  question1:
+    type: any
+    influence_conversation: false
+  
+  question2:
+    type: any
+    influence_conversation: false
+  
+  question3:
+    type: any
+    influence_conversation: false
+  
+  question4:
+    type: any
+    influence_conversation: false
+  
+  question5:
+    type: any
+    influence_conversation: false
+  
+  question6:
+    type: any
+    influence_conversation: false
+  
+  question7:
+    type: any
+    influence_conversation: false
+  
+  question8:
+    type: any
+    influence_conversation: false
+  
+  question9:
+    type: any
+    influence_conversation: false
+  
+  question10:
+    type: any
+    influence_conversation: false
+  
+  answer1:
+    type: text
+    influence_conversation: true
+  
+  answer2:
+    type: text
+    influence_conversation: true
+  
+  answer3:
+    type: text
+    influence_conversation: true
+  
+  answer4:
+    type: text
+    influence_conversation: true
+  
+  answer5:
+    type: text
+    influence_conversation: true
+  
+  answer6:
+    type: text
+    influence_conversation: true
+  
+  answer7:
+    type: text
+    influence_conversation: true
+  
+  answer8:
+    type: text
+    influence_conversation: true
+  
+  answer9:
+    type: text
+    influence_conversation: true
+  
+  answer10:
+    type: text
+    influence_conversation: true
+
+responses:
+  utter_greet:
+  - text: Hi there!
+  utter_goodbye:
+  - text: Bye
+  utter_your_welcome:
+  - text: Your very welcome!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_identify:
+  - text: I am your examiner, Padric.
+  utter_not_qualified:
+  - text: I'm sorry, I am not qualified to service this request.
+  utter_finished:
+  - text: Ok, we are done. Well done for completing the exam. Enjoy the rest of your day.
+  utter_file_not_found:
+  - text: The file {filename} could not be found. Make sure to upload a text file of your work.
+  utter_ready:
+  - text: I finished reading through {filename}. Click the button below when you're ready to start.
+    buttons:
+    - title: Ready
+      payload: /ready
+
+actions:
+- action_ask_answer1
+- action_ask_answer10
+- action_ask_answer2
+- action_ask_answer3
+- action_ask_answer4
+- action_ask_answer5
+- action_ask_answer6
+- action_ask_answer7
+- action_ask_answer8
+- action_ask_answer9
+- action_hello_world
+- action_restart
+- action_setup
+- action_submit_report
+- utter_ready
+
+forms:
+  questions_form:
+    required_slots:
+      answer1:
+      - type: from_text
+      answer2:
+      - type: from_text
+      answer3:
+      - type: from_text
+      answer4:
+      - type: from_text
+      answer5:
+      - type: from_text
+      answer6:
+      - type: from_text
+      answer7:
+      - type: from_text
+      answer8:
+      - type: from_text
+      answer9:
+      - type: from_text
+      answer10:
+      - type: from_text

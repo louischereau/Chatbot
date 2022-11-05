@@ -1,0 +1,24 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: filename
+    entities:
+    - filename
+  - slot_was_set:
+    - filename
+  - action: action_setup
+  - slot_was_set:
+    - file_uploaded: true
+  - action: utter_ready
+  
+- story: sad path
+  steps:
+  - intent: filename
+  - slot_was_set:
+    - filename
+  - action: action_setup
+  - slot_was_set:
+    - file_uploaded: false

@@ -1,0 +1,105 @@
+version: "2.0"
+nlu:
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - morning
+    - evening
+    - afternoon
+    - hey there
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - greetings
+    - hola
+    - bonjour
+    - Hello
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - not sure
+
+- intent: identify
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: thank
+  examples: |
+    - thanks
+    - thank you
+    - much obliged
+    - obliged
+    - gratitude
+    - merci
+    - gracias
+    - thank you so much
+    - thank you very much
+    - much appreciated
+    - I appreciate it
+    - appreciated
+    - I am very grateful
+
+- intent: ready
+  examples: |
+    - i am ready
+    - begin
+    - start
+    - Let's start
+    - let us begin
+    - ready
+    - go
+    - let's go
+
+- intent: filename
+  examples: |
+    - [test_review.txt](filename)
+    - [report_groupproject.txt](filename)
+    - [myReport_report.txt](filename)
+    - [myEssay_essay.txt](filename)
+    - [thesis_individualproject.txt](filename)
+    - [myThesis_individualproject.txt](filename)
+    - [project_groupproject.txt](filename)
+
+- regex: filename
+  examples: |
+    - ^[a-zA-Z0-9_]+.txt

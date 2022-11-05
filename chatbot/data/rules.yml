@@ -1,0 +1,49 @@
+version: "2.0"
+
+rules:
+
+- rule: Greet anytime the user says hi
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say your welcome anytime the user says thank you
+  steps:
+  - intent: thank
+  - action: utter_your_welcome
+
+- rule: Identify yourself anytime the user asks who you are
+  steps:
+  - intent: identify
+  - action: utter_identify
+
+- rule: Tell user cannot service request whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_not_qualified
+
+- rule: Activate form
+  condition:
+  - slot_was_set:
+    - file_uploaded: true
+  steps:
+  - intent: ready
+  - action: questions_form
+  - active_loop: questions_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: questions_form
+  steps:
+  # Form is deactivated
+  - action: questions_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_report
